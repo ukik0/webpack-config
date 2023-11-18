@@ -9,6 +9,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         port: options.port,
         open: true,
         hot: true,
-        watchFiles: path.join(__dirname, '..', 'src')
+        watchFiles: path.join(__dirname, '..', 'src'),
+        historyApiFallback: true
     };
 }

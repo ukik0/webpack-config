@@ -17,17 +17,14 @@ export function buildPlugins({ isDev }: BuildOptions): webpack.WebpackPluginInst
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
-            chunkFilename: 'css/[name].[contenthash:8].css'
+            chunkFilename: 'css/[name].[contenthash:8].css',
+            runtime: true
         }),
         new CopyPlugin({
             patterns: [
                 {
                     from: path.resolve(__dirname, '..', 'src', 'images'),
                     to: path.resolve(__dirname, '..', 'build', 'images')
-                },
-                {
-                    from: path.resolve(__dirname, '..', 'src', 'videos'),
-                    to: path.resolve(__dirname, '..', 'build', 'videos')
                 },
                 {
                     from: path.resolve(__dirname, '..', 'src', 'fonts'),
