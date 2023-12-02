@@ -53,7 +53,12 @@ export function buildPlugins({ isDev }: BuildOptions): webpack.WebpackPluginInst
                     filename: `${page}`,
                     chunks: 'all'
                 })
-        )
+        ),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery",
+        })
     ];
 
     if (isDev) {
